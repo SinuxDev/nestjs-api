@@ -13,8 +13,14 @@ model User {
   email     String   @unique
   password  String
   name      String?
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  bookmarks Bookmark[]
+
+  @@map("users")
+
 }
 
 model Bookmark {
@@ -24,4 +30,9 @@ model Bookmark {
   description String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  relatedUser String
+  user User @relation(fields: [relatedUser], references: [id], onDelete: Cascade)
+
+  @@map("bookmarks")
 }
