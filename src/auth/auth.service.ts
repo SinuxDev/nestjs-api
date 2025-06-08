@@ -34,12 +34,8 @@ export class AuthService {
       }
 
       return {
-        isSuccess: true,
-        message: 'Login successful',
-        data: {
-          name: user.name,
-          email: user.email,
-        },
+        name: user.name,
+        email: user.email,
       };
     } catch (error) {
       throw error instanceof ForbiddenException
