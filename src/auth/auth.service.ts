@@ -92,4 +92,9 @@ export class AuthService {
       throw new ForbiddenException('An unexpected error occurred');
     }
   }
+
+  async signOut() {
+    // Implement sign-out logic if needed, e.g., invalidate tokens
+    return { message: 'User signed out successfully' };
+  }
 }
